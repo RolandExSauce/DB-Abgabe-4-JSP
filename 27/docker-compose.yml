@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: myappdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data          # ← real persistence
+      - ./initdb:/docker-entrypoint-initdb.d     # ← 1st-start seed scripts
+
+  web:
+    image: tomcat:9.0-jdk17-temporal
+    ports:
+      - "8080:8080"
+    volumes:
+      # bind-mount the WAR we just built
+      - ./target/my-jsp-app.war:/usr/local/tomcat/webapps/ROOT.war
+    depends_on:
+      - db                       # start DB first
+
+volumes:
+  pgdata:
