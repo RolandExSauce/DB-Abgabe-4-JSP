@@ -14,7 +14,7 @@ services:
       - ./initdb:/docker-entrypoint-initdb.d     # ← 1st-start seed scripts
 
   web:
-    image: tomcat:9.0-jdk17-temporal
+    image: tomcat:9.0-jdk17
     ports:
       - "8080:8080"
     volumes:
