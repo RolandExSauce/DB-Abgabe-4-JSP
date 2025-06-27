@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-    <h1>Test JSP</h1>
-    
-</body>
-</html>
+<form method="post" action="login">
+    <h2>Login</h2>
+    Zahl: <input type="number" name="zahl" required><br>
+    Geburtsdatum: <input type="date" name="geburtsdatum" required><br>
+    <input type="submit" value="Login">
+</form>
