@@ -1,27 +1,28 @@
 version: "3.9"
 services:
   db:
+    container_name: container_postgres_ausbildung
     image: postgres:15
     restart: always
+
     environment:
-      POSTGRES_DB: myappdb
+      POSTGRES_DB: ausbildung_db
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: 
-    ports:
-      - "5432:5432"
+      POSTGRES_PASSWORD: password
+
+    ports: ["5435:5432"]
     volumes:
-      - pgdata:/var/lib/postgresql/data          # ← real persistence
-      - ./initdb:/docker-entrypoint-initdb.d     # ← 1st-start seed scripts
+      - pgdata:/var/lib/postgresql/data         
+      - ./initdb:/docker-entrypoint-initdb.d    
 
   web:
-    image: tomcat:9.0-jdk17
-    ports:
-      - "8080:8080"
-    volumes:
-      # bind-mount the WAR we just built
-      - ./target/my-jsp-app.war:/usr/local/tomcat/webapps/ROOT.war
+    build: .
+    container_name: container_webserver_ausbildung
+
+    image: jetty:12-jdk17-webapp
+    ports: ["8085:8080"]
     depends_on:
-      - db                       # start DB first
+      - db # start db first
 
 volumes:
   pgdata:

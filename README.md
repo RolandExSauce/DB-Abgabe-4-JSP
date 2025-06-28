@@ -5,8 +5,7 @@ It uses JSP (JavaServer Pages) and is configured to run with an embedded Tomcat 
 
 ## 📁 Project Structure
 
-* when done add image here about project struct 
-
+![img_1.png](img_1.png)
 
 ## ⚙️ Generate Project
 
@@ -20,7 +19,7 @@ src: https://code.visualstudio.com/docs/java/java-webapp
 # to run locally with Embedded Tomcat Server, plugin was added in POMXL
 
 
-# cmd to start tomcat server: mvn tomcat9:run
+# cmd to start tomcat server locally: mvn tomcat9:run
 
 .) Open your browser and navigate to: http://localhost:8080/
 
@@ -37,4 +36,49 @@ This creates a target/<artifactId>.war file you can deploy to any Servlet contai
 
 .) Maven 3.x
 
+
+# Docker commands: 
+
+# !!! WARNING: Deletes all database data, use with caution !!!
+
+remove volumes:
+* docker compose down -v
+
+build command: 
+* docker compose up --build
+
+# #########################################################################################
+# Typical dev loop: 
+
+# Recompile WAR
+mvn clean package
+
+# Recreate containers with the fresh WAR
+docker compose -f docker-compose.backend.yml up --build
+
+# Or in detached mode
+docker compose -f docker-compose.backend.yml up --build -d
+
+
+# to ssh via cmd inside container: docker exec -it container_id bash
+
+to access db server via cmd: psql -U user -d ausbildung_db
+
+or for a Client use this plugin in vscode: https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-postgresql-client2
+(Intellij has similar plugin)
+
+Host: localhost
+Port: 5435
+Database: ausbildung_db
+User: user
+Password: password
+
+# For localhost (on your machine and not docker, use port 5435 or any other or if 5432 works, that's fine)
+
+after adding this plugin, go to the UI and test the queries from: test.sql 
+
+
+# Consider to learn basics of JSP and Servlets, for JSP here is a quick reference of the Tags: 
+
+![img.png](img.png)
 
