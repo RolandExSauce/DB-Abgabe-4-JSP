@@ -1,4 +1,3 @@
-<%@include file="config/db_connect.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <sql:query dataSource="${uniDB}" var="bookings">

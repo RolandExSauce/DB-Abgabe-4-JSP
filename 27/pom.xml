@@ -119,19 +119,6 @@
         </configuration>
       </plugin>
 
-
-      <!-- Optional: For local Tomcat testing -->
-<!--      <plugin>-->
-<!--        <groupId>org.opoo.maven</groupId>-->
-<!--        <artifactId>tomcat9-maven-plugin</artifactId>-->
-<!--        <version>3.0.1</version>-->
-<!--        <configuration>-->
-<!--          <port>8085</port>-->
-<!--          <path>/</path>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
-
-
     </plugins>
   </build>
 </project>
