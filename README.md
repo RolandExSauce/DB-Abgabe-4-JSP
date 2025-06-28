@@ -19,10 +19,7 @@ src: https://code.visualstudio.com/docs/java/java-webapp
 # to run locally with Jetty server, plugin was added in POMXL
 run: mvn jetty:run
 
-
-# cmd to start tomcat server locally: mvn tomcat9:run
-
-.) Open your browser and navigate to: http://localhost:8080/
+.) Open your browser and navigate to: http://localhost:8085/
 
 
 # 🧱 Build WAR

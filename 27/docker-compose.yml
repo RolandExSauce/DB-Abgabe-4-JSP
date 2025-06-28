@@ -16,11 +16,14 @@ services:
       - ./initdb:/docker-entrypoint-initdb.d    
 
   web:
-    build: .
+    # build: .
     container_name: container_webserver_ausbildung
 
-    image: jetty:12-jdk17-webapp
+    image: jetty:11.0.25-jdk17
     ports: ["8085:8080"]
+
+    volumes:
+      - ./target/my-jsp-app.war:/var/lib/jetty/webapps/root.war
 
     depends_on:
       - db # start db first
