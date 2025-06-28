@@ -5,19 +5,4 @@
       <data-sources db="6d08052b-3966-47a7-9185-0f15ad6654a6" ddl="a5b78c58-86fc-445c-978c-abd65af982a0" />
     </mapping>
   </component>
-  <component name="SqlDataSourceStorage">
-    <option name="dataSources">
-      <list>
-        <State>
-          <option name="id" value="a5b78c58-86fc-445c-978c-abd65af982a0" />
-          <option name="name" value="ausbildung_db@localhost (DDL)" />
-          <option name="dbmsName" value="POSTGRES" />
-          <option name="urls">
-            <array />
-          </option>
-          <option name="outLayout" value="File per object by schema.groovy" />
-        </State>
-      </list>
-    </option>
-  </component>
 </project>

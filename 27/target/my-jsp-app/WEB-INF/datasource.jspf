@@ -1,0 +1,4 @@
+<%@ taglib prefix="sql" uri="jakarta.tags.sql" %>
+
+<!-- JNDI lookup, lives in page context as ${uniDB} -->
+<sql:setDataSource var="uniDB" dataSource="jdbc/UniDB"/>

@@ -16,7 +16,8 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
 src: https://code.visualstudio.com/docs/java/java-webapp
 
 
-# to run locally with Embedded Tomcat Server, plugin was added in POMXL
+# to run locally with Jetty server, plugin was added in POMXL
+run: mvn jetty:run
 
 
 # cmd to start tomcat server locally: mvn tomcat9:run
@@ -54,10 +55,10 @@ build command:
 mvn clean package
 
 # Recreate containers with the fresh WAR
-docker compose -f docker-compose.backend.yml up --build
+docker compose up --build
 
 # Or in detached mode
-docker compose -f docker-compose.backend.yml up --build -d
+docker compose up --build -d
 
 
 # to ssh via cmd inside container: docker exec -it container_id bash

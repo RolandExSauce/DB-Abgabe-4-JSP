@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ausbildung_db@localhost" uuid="6d08052b-3966-47a7-9185-0f15ad6654a6">
+    <data-source source="LOCAL" name="ausbildung_db@localhost" uuid="4f4e20f0-a0eb-4c10-adbc-7eec9006654f">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <remarks>postgres instance in docker</remarks>
@@ -10,6 +10,7 @@
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
