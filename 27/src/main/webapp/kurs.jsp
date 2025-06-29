@@ -7,10 +7,9 @@
 <!-- 1) DataSource – passt für lokalen Jetty (5435)            -->
 <!--    Für Compose später einfach localhost → db ändern       -->
 
-<!-- local postgres:   url="jdbc:postgresql://localhost:5435/ausbildung_db" -->
 <sql:setDataSource var="db"
                    driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://db:5432/ausbildung_db"
+                   url="jdbc:postgresql://localhost:5435/ausbildung_db"
                    user="user"
                    password="password" />
 

@@ -7,10 +7,12 @@
 <!-- 1) DataSource – passt für lokalen Jetty (5435)            -->
 <!--    Für Compose später einfach localhost → db ändern       -->
 
-<!-- locally:    url="jdbc:postgresql://localhost:5435/ausbildung_db" -->
+<!-- local postgres:   url="jdbc:postgresql://localhost:5435/ausbildung_db"
+url="jdbc:postgresql://localhost:5435/ausbildung_db"
+-->
 <sql:setDataSource var="db"
                    driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://db:5432/ausbildung_db"
+                   url="jdbc:postgresql://localhost:5435/ausbildung_db"
                    user="user"
                    password="password" />
 
@@ -23,7 +25,7 @@
     ORDER BY kursname;
 </sql:query>
 
-<!-- 3) Ausgabe                                                -->
+<!-- 3) Ausgabe -->
 <h2>Kursübersicht</h2>
 <table border="1" cellpadding="4">
     <tr>
