@@ -4,5 +4,8 @@
     <mapping uuid="e70230a7-1f3e-4500-af2e-9cc34ebbe124" name="ausbildung_db@localhost Mapping">
       <data-sources db="6d08052b-3966-47a7-9185-0f15ad6654a6" ddl="a5b78c58-86fc-445c-978c-abd65af982a0" />
     </mapping>
+    <mapping uuid="4e844b32-c234-4599-96f1-801ef1694538" name="ausbildung_db@localhost Mapping [2]">
+      <data-sources db="4f4e20f0-a0eb-4c10-adbc-7eec9006654f" />
+    </mapping>
   </component>
 </project>
