@@ -1,7 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.sql.Time" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@ include file="/WEB-INF/common/datasource.jspf" %>
+
+<%@ page import="java.time.LocalTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+
+<%
+    String t = request.getParameter("t");
+    Time parsedTime = null;
+    if (t != null && !t.isEmpty()) {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm[:ss]");
+            LocalTime localTime = LocalTime.parse(t, formatter);
+            parsedTime = Time.valueOf(localTime);
+        } catch (Exception e) {
+            throw new ServletException("Invalid time format: " + t + ". Expected HH:mm or HH:mm:ss");
+        }
+    }
+    request.setAttribute("parsedTime", parsedTime);
+%>
 
 <!-- Erwartete Parameter -->
 <c:set var="datum" value="${param.d}" />
@@ -12,20 +31,31 @@
 <sql:query var="sem" dataSource="${db}">
     SELECT * FROM seminar
     WHERE datum = ? AND uhrzeit = ?;
-    <sql:param value="${datum}" />
-    <sql:param value="${uhrzeit}" />
+    <sql:dateParam value="${param.d}" />
+    <sql:param value="${parsedTime}" />
 </sql:query>
+
 <c:set var="seminar" value="${sem.rows[0]}" />
 
 <h2>Seminar-Details</h2>
 
-<ul>
-    <li>Kurs: <strong>${kurs}</strong></li>
-    <li>Datum: <strong>${seminar.datum}</strong></li>
-    <li>Uhrzeit: <strong>${seminar.uhrzeit}</strong></li>
-    <li>Ort: <strong>${seminar.ort}</strong></li>
-    <li>Plätze: <strong>${seminar.platz}</strong></li>
-</ul>
+<c:if test="${sem.rowCount == 0}">
+    <p style="color:red">Kein passendes Seminar gefunden (Datum/Uhrzeit nicht vorhanden).</p>
+</c:if>
+
+
+<c:if test="${sem.rowCount > 0}">
+    <c:set var="seminar" value="${sem.rows[0]}" />
+
+    <ul>
+        <li>Kurs: <strong>${kurs}</strong></li>
+        <li>Datum: <strong>${seminar.datum}</strong></li>
+        <li>Uhrzeit: <strong>${seminar.uhrzeit}</strong></li>
+        <li>Ort: <strong>${seminar.ort}</strong></li>
+        <li>Plaetze: <strong>${seminar.platz}</strong></li>
+    </ul>
+</c:if>
+
 
 <!-- Buchungsformular -->
 <c:if test="${empty param.book}">
@@ -54,8 +84,8 @@
         VALUES (?, ?, ?, ?);
         <sql:param value="${resNr}" />
         <sql:param value="${kdn}" />
-        <sql:param value="${datum}" />
-        <sql:param value="${uhrzeit}" />
+        <sql:dateParam  value="${datum}" />
+        <sql:param value="${parsedTime}" />
     </sql:update>
 
     <p style="color:green">
@@ -65,7 +95,7 @@
 
     <p>
         <a href="${pageContext.request.contextPath}/seminar?kurs=${kurs}">
-            ⇠ Zurück zur Terminliste
+            ⇠ Zurueck zur Terminliste
         </a>
     </p>
 </c:if>

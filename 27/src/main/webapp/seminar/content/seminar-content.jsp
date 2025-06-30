@@ -23,14 +23,14 @@
     <sql:param value="${kursname}" />
 </sql:query>
 
-<h2>Seminare für <em>${kursname}</em></h2>
+<h2>Seminare fuer <em>${kursname}</em></h2>
 
-<table border="1" cellpadding="4">
+<table>
     <tr>
         <th>Datum</th>
         <th>Uhrzeit</th>
         <th>Ort</th>
-        <th>Freie&nbsp;Plätze</th>
+        <th>Freie&nbsp;Plaetze</th>
         <th>Aktion</th>
     </tr>
 
@@ -56,4 +56,4 @@
     </c:forEach>
 </table>
 
-<p><a href="${pageContext.request.contextPath}/kursauswahl">⇠ Zur Kursübersicht</a></p>
+<p><a href="${pageContext.request.contextPath}/kursauswahl">⇠ Zur Kursuebersicht</a></p>

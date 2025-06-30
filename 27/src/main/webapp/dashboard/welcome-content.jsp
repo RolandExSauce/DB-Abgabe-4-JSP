@@ -18,7 +18,7 @@
     <c:when test="${sessionScope.rolle == 'ADMIN'}">
         <h2>Admin-Dashboard</h2>
         <ul>
-            <li><a href="${pageContext.request.contextPath}/admin/teilnehmer.jsp">Teilnehmer anlegen</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin/add-teilnehmer.jsp">Teilnehmer anlegen</a></li>
             <li><a href="${pageContext.request.contextPath}/kurs/kurse.jsp">Kurse verwalten</a></li>
         </ul>
     </c:when>

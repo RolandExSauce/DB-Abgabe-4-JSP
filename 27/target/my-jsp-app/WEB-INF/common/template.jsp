@@ -6,6 +6,9 @@
   <meta charset="UTF-8">
   <title><c:out value="${param.pageTitle}"/></title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
+  <c:if test="${not empty param.stylesheet}">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/${param.stylesheet}" />
+  </c:if>
 </head>
 <body>
 <jsp:include page="/WEB-INF/common/header.jspf"/>

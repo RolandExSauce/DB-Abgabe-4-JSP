@@ -1,59 +1,313 @@
-/* main.css – Standardlayout */
+/* main.css – Improved layout for existing JSP structure */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-header, footer {
-    background-color: #222;
+/* Header Styling */
+header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Login Status (for the inline div with float:right) */
+header div[style*="float:right"] {
+    background: rgba(255,255,255,0.1) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(5px) !important;
+    margin-top: -0.5rem !important;
+    font-size: 0.9rem !important;
+}
+
+header div[style*="float:right"] strong {
+    color: #3498db;
+}
+
+/* Header Title */
+header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
     text-align: center;
+    clear: both;
 }
 
+/* Navigation */
+nav {
+    background: rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin: 0 -2rem -1rem -2rem;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.1);
+    border-bottom-color: #3498db;
+    transform: translateY(-2px);
+}
+
+nav a:active,
+nav a.active {
+    background: rgba(52, 152, 219, 0.3);
+    border-bottom-color: #3498db;
+}
+
+/* Main Content */
 main {
+    flex: 1;
     padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-h2 {
-    color: #0056b3;
+/* Login Page Specific Styling */
+body > h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 300;
 }
 
+/* Login Form Styling */
+.login-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+/* Form Styling */
+form {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Button Styling */
+button, input[type="submit"] {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Table Styling */
 table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 1rem;
     background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 table th, table td {
-    border: 1px solid #ccc;
-    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 1rem;
     text-align: left;
 }
 
 table th {
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
+table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Links */
 a {
-    color: #0056b3;
+    color: #3498db;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
+    color: #2980b9;
     text-decoration: underline;
 }
 
-form {
-    margin-top: 1rem;
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-size: 0.9rem;
 }
 
-input, select {
-    margin: 0.5rem 0;
-    padding: 0.4rem;
-    font-size: 1rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    header div[style*="float:right"] {
+        float: none !important;
+        text-align: center !important;
+        margin: 0 0 1rem 0 !important;
+        display: block !important;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        margin: 0 -1rem -1rem -1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav a {
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-right: none;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    table th, table td {
+        padding: 0.5rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* Alert/Message Styling */
+.alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: #d4edda;
+    border-color: #27ae60;
+    color: #155724;
+}
+
+.alert-error {
+    background: #f8d7da;
+    border-color: #e74c3c;
+    color: #721c24;
+}
+
+.alert-info {
+    background: #d1ecf1;
+    border-color: #3498db;
+    color: #0c5460;
 }

@@ -38,4 +38,4 @@
 </c:choose>
 
 <p style="color:green">Skript erfolgreich ausgeliehen.</p>
-<p><a href="${pageContext.request.contextPath}/skript/skripte.jsp">⇠ Zurück zur Übersicht</a></p>
+<p><a href="${pageContext.request.contextPath}/skript/skripte.jsp">⇠ Zurueck zur Uebersicht</a></p>

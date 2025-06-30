@@ -21,7 +21,7 @@
 
 <h2>Teilnehmer (Admin)</h2>
 
-<table border="1">
+<table>
     <tr><th>Nr</th><th>Name</th><th>Adresse</th><th>Ausbilder</th></tr>
     <c:forEach var="row" items="${teilnehmer.rows}">
         <tr>

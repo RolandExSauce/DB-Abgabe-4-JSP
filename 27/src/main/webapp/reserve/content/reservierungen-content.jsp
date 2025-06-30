@@ -31,11 +31,11 @@
 
 <c:choose>
     <c:when test="${buchungen.rowCount == 0}">
-        <p>Keine zukünftigen Buchungen.</p>
+        <p>Keine zukuenftigen Buchungen.</p>
     </c:when>
 
     <c:otherwise>
-        <table border="1" cellpadding="4">
+        <table>
             <tr>
                 <th>Kurs</th>
                 <th>Datum</th>

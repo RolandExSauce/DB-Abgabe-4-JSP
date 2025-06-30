@@ -1,0 +1,251 @@
+/* login.css - Specific styles for login page */
+
+/* Login Page Container */
+body {
+    background: #e6f2ff;
+    min-height: 100vh;
+}
+
+/* Override main content styling for login page */
+main, body > *:not(header):not(footer) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px); /* Account for header/footer */
+    padding: 2rem;
+}
+
+/* Login Form Container */
+.login-wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+/* Login Title */
+h2 {
+    color: #2c3e50 !important;
+    font-size: 2rem !important;
+    font-weight: 300 !important;
+    margin-bottom: 2rem !important;
+    border: none !important;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Form Styling */
+form {
+    max-width: none !important;
+    width: 100%;
+    margin-top: 0 !important;
+}
+
+/* Form Labels */
+form label {
+    display: block !important;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 1rem;
+    min-width: auto !important;
+}
+
+/* Form Inputs */
+form input[type="number"],
+form input[type="date"] {
+    width: 100% !important;
+    padding: 1rem !important;
+    margin: 0.5rem 0 0 0 !important;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+}
+
+form input[type="number"]:focus,
+form input[type="date"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    width: 100% !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+    border-radius: 10px !important;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 1rem !important;
+    text-transform: uppercase;
+}
+
+form input[type="submit"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3) !important;
+}
+
+form input[type="submit"]:active {
+    transform: translateY(-1px) !important;
+}
+
+/* Line breaks - hide them for better spacing */
+form br {
+    display: none;
+}
+
+/* Register Link */
+p[style*="margin-top"] {
+    margin-top: 2rem !important;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e1e8ed;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+p[style*="margin-top"] a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+p[style*="margin-top"] a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Error Messages */
+p[style*="color:red"] {
+    background: #fee;
+    border: 2px solid #fcc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    color: #c33 !important;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Back to Login Link */
+p:has(a[href="login.jsp"]) {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+p:has(a[href="login.jsp"]) a {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+p:has(a[href="login.jsp"]) a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-wrapper {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+    }
+
+    form input[type="number"],
+    form input[type="date"],
+    form input[type="submit"] {
+        padding: 0.9rem !important;
+        font-size: 1rem !important;
+    }
+
+    main, body > *:not(header):not(footer) {
+        padding: 1rem;
+        min-height: calc(100vh - 160px);
+    }
+}
+
+@media (max-width: 480px) {
+    .login-wrapper {
+        padding: 1.5rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.4rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* Animation for form appearance */
+.login-wrapper {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input validation styles */
+form input:invalid {
+    border-color: #e74c3c;
+}
+
+form input:valid {
+    border-color: #27ae60;
+}
+
+/* Focus styles for better accessibility */
+form input:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}

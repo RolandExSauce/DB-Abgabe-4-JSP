@@ -10,18 +10,8 @@
     </div>
 </c:if>
 
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title><c:out value="${pageTitle != null ? pageTitle : 'University DB'}"/></title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
-</head>
-<body>
 <header>
     <h1>University DB</h1>
-
     <nav>
         <ul>
             <li><a href="${pageContext.request.contextPath}/dashboard/welcome.jsp">Home</a></li>
@@ -31,7 +21,7 @@
 
             <!-- Admin menu -->
             <c:if test="${sessionScope.rolle == 'ADMIN'}">
-                <li><a href="${pageContext.request.contextPath}/admin/teilnehmer.jsp">Teilnehmer anlegen</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/add-teilnehmer.jsp">Teilnehmer anlegen</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/ausbilder.jsp">Ausbilder verwalten</a></li>
             </c:if>
 
@@ -47,4 +37,3 @@
         </ul>
     </nav>
 </header>
-<main>
