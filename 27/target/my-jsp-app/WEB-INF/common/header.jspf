@@ -1,0 +1,50 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<c:if test="${not empty sessionScope.rolle}">
+    <div style="float:right; margin-right: 2rem;">
+        Eingeloggt als: <strong>${sessionScope.rolle}</strong>
+        <c:if test="${not empty sessionScope.kdn}">
+            (Kdn: ${sessionScope.kdn})
+        </c:if>
+    </div>
+</c:if>
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title><c:out value="${pageTitle != null ? pageTitle : 'University DB'}"/></title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/main.css">
+</head>
+<body>
+<header>
+    <h1>University DB</h1>
+
+    <nav>
+        <ul>
+            <li><a href="${pageContext.request.contextPath}/dashboard/welcome.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/kurs/kursauswahl.jsp">Kurse</a></li>
+            <li><a href="${pageContext.request.contextPath}/seminar/seminar.jsp">Seminare</a></li>
+            <li><a href="${pageContext.request.contextPath}/skript/skripte.jsp">Skripte</a></li>
+
+            <!-- Admin menu -->
+            <c:if test="${sessionScope.rolle == 'ADMIN'}">
+                <li><a href="${pageContext.request.contextPath}/admin/teilnehmer.jsp">Teilnehmer anlegen</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/ausbilder.jsp">Ausbilder verwalten</a></li>
+            </c:if>
+
+            <!-- Show login/logout -->
+            <c:choose>
+                <c:when test="${empty sessionScope.rolle}">
+                    <li><a href="${pageContext.request.contextPath}/auth/login.jsp">Login</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="${pageContext.request.contextPath}/logout.jsp">Logout</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </nav>
+</header>
+<main>

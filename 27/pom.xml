@@ -9,13 +9,15 @@
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>27 Maven Webapp</name>
-
-  <!-- TODO: update this to webapp url ? or do we even need it ? -->
-  <url>http://www.example.com</url>
+  <name>FH Campus AusbildungDB </name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
@@ -95,7 +97,10 @@
         <version>3.4.0</version>
       </plugin>
 
-<!--       Jetty 12 – Jakarta EE 10 container -->
+      <!--  TODO: utf8 dont properly handle characters like ü, ä, ö etc.
+      For now lets just skip and write ue etc.
+      -->
+    <!-- Jetty 12 – Jakarta EE 10 container -->
       <plugin>
         <groupId>org.eclipse.jetty.ee10</groupId>
         <artifactId>jetty-ee10-maven-plugin</artifactId>
@@ -107,6 +112,20 @@
           <webApp>
             <contextPath>/</contextPath>
           </webApp>
+          <systemProperties>
+            <systemProperty>
+              <name>org.eclipse.jetty.httpConfig.requestHeaderSize</name>
+              <value>8192</value>
+            </systemProperty>
+            <systemProperty>
+              <name>org.eclipse.jetty.httpConfig.responseHeaderSize</name>
+              <value>8192</value>
+            </systemProperty>
+            <systemProperty>
+              <name>org.eclipse.jetty.util.UrlEncoding.charset</name>
+              <value>UTF-8</value>
+            </systemProperty>
+          </systemProperties>
         </configuration>
       </plugin>
 

@@ -1,154 +1,161 @@
--- Insert sample persons
+-- Data Insertion Script
+-- Note: Execute schema.sql first, then this file
+
+-- Insert data into Person table
 INSERT INTO Person (Zahl, Geburtsdatum, Vorname, Nachname, PLZ, Ort, Straße, Hausnummer)
 VALUES
-    (1, '1990-05-15', 'Max', 'Mustermann', '1010', 'Wien', 'Graben', '12'),
-    (2, '1985-08-22', 'Anna', 'Schmidt', '8010', 'Graz', 'Herrengasse', '5'),
-    (3, '1978-11-03', 'Thomas', 'Müller', '5020', 'Salzburg', 'Getreidegasse', '1'),
-    (4, '1992-03-10', 'Lisa', 'Weber', '4020', 'Linz', 'Landstraße', '8'),
-    (5, '1988-12-25', 'Michael', 'Fischer', '6020', 'Innsbruck', 'Maria-Theresien-Straße', '15'),
-    (6, '1995-07-14', 'Sarah', 'Wagner', '6900', 'Bregenz', 'Kornmarktstraße', '22'),
-    (7, '1983-09-30', 'David', 'Becker', '7000', 'Eisenstadt', 'Hauptstraße', '3'),
-    (8, '1991-01-20', 'Julia', 'Hoffmann', '3500', 'Krems', 'Landstraße', '7');
+    (1, '1980-05-15', 'Max', 'Mustermann', '10115', 'Berlin', 'Hauptstraße', '12'),
+    (2, '1975-08-22', 'Anna', 'Schmidt', '80331', 'München', 'Bahnhofstraße', '5'),
+    (3, '1990-03-10', 'Thomas', 'Müller', '50667', 'Köln', 'Domplatz', '1'),
+    (4, '1985-11-30', 'Sarah', 'Wagner', '20144', 'Hamburg', 'Jungfernstieg', '25'),
+    (5, '1978-07-04', 'Michael', 'Becker', '70173', 'Stuttgart', 'Königstraße', '10'),
+    (6, '1992-01-18', 'Laura', 'Hoffmann', '60311', 'Frankfurt', 'Zeil', '112'),
+    (7, '1983-09-25', 'Daniel', 'Schulz', '01067', 'Dresden', 'Prager Straße', '8'),
+    (8, '1970-12-05', 'Julia', 'Koch', '04109', 'Leipzig', 'Nikolaistraße', '3'),
+    (9, '1987-04-12', 'David', 'Bauer', '38100', 'Braunschweig', 'Bohlweg', '45'),
+    (10, '1995-06-28', 'Sophie', 'Richter', '39104', 'Magdeburg', 'Breiter Weg', '30');
 
--- Insert banks
+-- Insert data into Bank table
 INSERT INTO Bank (Bankleitzahl, Name)
 VALUES
-    ('12000', 'Erste Bank'),
-    ('20111', 'Bank Austria'),
-    ('14000', 'Raiffeisen Bank International'),
-    ('12000', 'Sparkasse'),
-    ('14000', 'Volksbank');
+    ('10000000', 'Deutsche Bank'),
+    ('20000000', 'Commerzbank'),
+    ('30000000', 'Sparkasse'),
+    ('40000000', 'Volksbank'),
+    ('50000000', 'Postbank');
 
--- Insert courses
+-- Insert data into Kurs table
 INSERT INTO Kurs (Kursname, Anzahl_Organisatoren, Vorbereitungszeit)
 VALUES
-    ('Datenbanken', 2, 180),
-    ('Programmierung', 3, 240),
-    ('Webentwicklung', 1, 120),
-    ('Netzwerktechnik', 2, 150),
-    ('Betriebssysteme', 1, 200);
+    ('Grundlagen der Programmierung', 2, 30),
+    ('Datenbanken', 3, 45),
+    ('Webentwicklung', 2, 40),
+    ('Maschinelles Lernen', 4, 60),
+    ('Projektmanagement', 2, 35);
 
--- Insert phone numbers
+-- Insert data into Telefonnummer table
 INSERT INTO Telefonnummer (Zahl, Geburtsdatum, Nummer)
 VALUES
-    (1, '1990-05-15', '+43 1 12345678'),
-    (2, '1985-08-22', '+43 316 87654321'),
-    (3, '1978-11-03', '+43 662 11223344'),
-    (4, '1992-03-10', '+43 732 55667788'),
-    (5, '1988-12-25', '+43 512 99887766');
+    (1, '1980-05-15', '+49 17612345678'),
+    (2, '1975-08-22', '+49 15198765432'),
+    (3, '1990-03-10', '+49 1705556677'),
+    (4, '1985-11-30', '+49 1723334444'),
+    (5, '1978-07-04', '+49 1607778888'),
+    (6, '1992-01-18', '+49 1789990000'),
+    (7, '1983-09-25', '+49 1521112222'),
+    (8, '1970-12-05', '+49 1773334444'),
+    (9, '1987-04-12', '+49 1795556666'),
+    (10, '1995-06-28', '+49 1747778888');
 
--- Insert employees
+-- Insert data into Angestellter table
 INSERT INTO Angestellter (Zahl, Geburtsdatum, Angestellten_Nr)
 VALUES
-    (1, '1990-05-15', 1001),
-    (2, '1985-08-22', 1002),
-    (3, '1978-11-03', 1003),
-    (4, '1992-03-10', 1004),
-    (5, '1988-12-25', 1005);
+    (1, '1980-05-15', 1001),
+    (2, '1975-08-22', 1002),
+    (3, '1990-03-10', 1003),
+    (4, '1985-11-30', 1004),
+    (5, '1978-07-04', 1005);
 
--- Insert salary accounts
+-- Insert data into Gehaltskonto table
 INSERT INTO Gehaltskonto (Angestellten_Nr, Bankleitzahl, Konto_Nr, Kontostand)
 VALUES
-    (1001, '12000', 'AT123456789012345678', 3500.00),
-    (1002, '20111', 'AT098765432109876543', 4200.00),
-    (1003, '14000', 'AT112233445566778899', 3800.00),
-    (1004, '12000', 'AT223344556677889900', 3100.00),
-    (1005, '14000', 'AT334455667788990011', 4500.00);
+    (1001, '10000000', 'DE12345678901234567890', 5000.00),
+    (1002, '20000000', 'DE98765432109876543210', 6500.00),
+    (1003, '30000000', 'DE11112222333344445555', 4500.00),
+    (1004, '40000000', 'DE55554444333322221111', 7000.00),
+    (1005, '50000000', 'DE99998888777766665555', 6000.00);
 
--- Insert trainers
+-- Insert data into Ausbilder table
 INSERT INTO Ausbilder (Angestellten_Nr, Einstellungsdatum, Kennzeichnung)
 VALUES
-    (1001, '2020-01-15', 'TRAINER_001'),
-    (1002, '2019-03-20', 'TRAINER_002'),
-    (1003, '2018-07-10', 'TRAINER_003'),
-    (1004, '2021-02-28', 'TRAINER_004'),
-    (1005, '2017-11-05', 'TRAINER_005');
+    (1001, '2010-06-01', 'AUSB-001'),
+    (1002, '2012-03-15', 'AUSB-002'),
+    (1003, '2015-09-10', 'AUSB-003');
 
--- Insert participants
+-- Insert data into Teilnehmer table
 INSERT INTO Teilnehmer (Zahl, Geburtsdatum, Kunden_Nr, Kennzeichnung)
 VALUES
-    (6, '1995-07-14', 2001, 'TRAINER_001'),
-    (7, '1983-09-30', 2002, 'TRAINER_002'),
-    (8, '1991-01-20', 2003, 'TRAINER_003');
+    (6, '1992-01-18', 2001, 'AUSB-001'),
+    (7, '1983-09-25', 2002, 'AUSB-002'),
+    (8, '1970-12-05', 2003, 'AUSB-003'),
+    (9, '1987-04-12', 2004, 'AUSB-001'),
+    (10, '1995-06-28', 2005, 'AUSB-002');
 
--- Insert trainer conflicts (some trainers don't like each other)
+-- Insert data into Ausbilder_hasst_Ausbilder table
 INSERT INTO Ausbilder_hasst_Ausbilder (Angestellten_Nr1, Angestellten_Nr2)
 VALUES
     (1001, 1002),
-    (1003, 1004);
+    (1002, 1003);
 
--- Insert organizers
+-- Insert data into Organisator table
 INSERT INTO Organisator (Angestellten_Nr)
 VALUES
-    (1001),
-    (1003),
+    (1004),
     (1005);
 
--- Insert script types
+-- Insert data into Skriptentyp table
 INSERT INTO Skriptentyp (Nummer, Autor, Kursname)
 VALUES
-    (1, 'Dr. Hans Mueller', 'Datenbanken'),
-    (2, 'Prof. Maria Schmidt', 'Programmierung'),
-    (3, 'Dipl. Ing. Klaus Weber', 'Webentwicklung'),
-    (4, 'Dr. Petra Fischer', 'Netzwerktechnik'),
-    (5, 'Prof. Wolfgang Wagner', 'Betriebssysteme');
+    (1, 'Max Mustermann', 'Grundlagen der Programmierung'),
+    (2, 'Anna Schmidt', 'Datenbanken'),
+    (3, 'Thomas Müller', 'Webentwicklung'),
+    (4, 'Sarah Wagner', 'Maschinelles Lernen'),
+    (5, 'Michael Becker', 'Projektmanagement');
 
--- Insert scripts (multiple copies of each type)
+-- Insert data into Skript table
 INSERT INTO Skript (Inventarnummer, Nummer)
 VALUES
     (1001, 1),
     (1002, 1),
     (1003, 2),
-    (1004, 2),
-    (1005, 2),
-    (1006, 3),
-    (1007, 4),
-    (1008, 4),
-    (1009, 5),
+    (1004, 3),
+    (1005, 4),
+    (1006, 5),
+    (1007, 2),
+    (1008, 3),
+    (1009, 4),
     (1010, 5);
 
--- Insert script loans
+-- Insert data into Organisator_oder_Ausbilder_entleiht_Skript table
 INSERT INTO Organisator_oder_Ausbilder_entleiht_Skript (Angestellten_Nr, Kennzeichnung, Inventar_Nr)
 VALUES
-    (1001, NULL, 1001),
-    (NULL, 'TRAINER_002', 1003),
-    (1003, NULL, 1005),
-    (NULL, 'TRAINER_004', 1007),
-    (1005, NULL, 1009);
+    (NULL, 'AUSB-001', 1001),
+    (NULL, 'AUSB-002', 1003),
+    (1004, NULL, 1005),
+    (1005, NULL, 1007),
+    (NULL, 'AUSB-003', 1009);
 
--- Insert seminars
+-- Insert data into Seminar table
 INSERT INTO Seminar (Datum, Uhrzeit, Platz, Ort, Straße, Haus_Nr, Kursname)
 VALUES
-    ('2024-01-15', '09:00:00', 20, 'Wien', 'Graben', '1', 'Datenbanken'),
-    ('2024-01-16', '14:00:00', 15, 'Graz', 'Herrengasse', '5', 'Programmierung'),
-    ('2024-01-17', '10:00:00', 25, 'Salzburg', 'Getreidegasse', '10', 'Webentwicklung'),
-    ('2024-01-18', '13:00:00', 18, 'Linz', 'Landstraße', '8', 'Netzwerktechnik'),
-    ('2024-01-19', '11:00:00', 22, 'Innsbruck', 'Maria-Theresien-Straße', '15', 'Betriebssysteme');
+    ('2023-10-15', '09:00:00', 20, 'Berlin', 'Hauptstraße', '12', 'Grundlagen der Programmierung'),
+    ('2023-10-16', '13:00:00', 15, 'München', 'Bahnhofstraße', '5', 'Datenbanken'),
+    ('2023-10-17', '10:30:00', 25, 'Köln', 'Domplatz', '1', 'Webentwicklung'),
+    ('2023-10-18', '14:00:00', 10, 'Hamburg', 'Jungfernstieg', '25', 'Maschinelles Lernen'),
+    ('2023-10-19', '11:00:00', 30, 'Stuttgart', 'Königstraße', '10', 'Projektmanagement');
 
--- Insert seminar reservations
+-- Insert data into Teilnehmer_reserviert_Seminar table
 INSERT INTO Teilnehmer_reserviert_Seminar (Reservierungs_Nr, Kunden_Nr, Datum, Uhrzeit)
 VALUES
-    (3001, 2001, '2024-01-15', '09:00:00'),
-    (3002, 2002, '2024-01-16', '14:00:00'),
-    (3003, 2003, '2024-01-17', '10:00:00'),
-    (3004, 2001, '2024-01-18', '13:00:00'),
-    (3005, 2002, '2024-01-19', '11:00:00');
+    (1, 2001, '2023-10-15', '09:00:00'),
+    (2, 2002, '2023-10-16', '13:00:00'),
+    (3, 2003, '2023-10-17', '10:30:00'),
+    (4, 2004, '2023-10-18', '14:00:00'),
+    (5, 2005, '2023-10-19', '11:00:00');
 
--- Insert trainer-seminar assignments
+-- Insert data into Ausbilder_hat_Seminar table
 INSERT INTO Ausbilder_hat_Seminar (Datum, Uhrzeit, Kennzeichnung)
 VALUES
-    ('2024-01-15', '09:00:00', 'TRAINER_001'),
-    ('2024-01-16', '14:00:00', 'TRAINER_002'),
-    ('2024-01-17', '10:00:00', 'TRAINER_003'),
-    ('2024-01-18', '13:00:00', 'TRAINER_004'),
-    ('2024-01-19', '11:00:00', 'TRAINER_005');
+    ('2023-10-15', '09:00:00', 'AUSB-001'),
+    ('2023-10-16', '13:00:00', 'AUSB-002'),
+    ('2023-10-17', '10:30:00', 'AUSB-003'),
+    ('2023-10-18', '14:00:00', 'AUSB-001'),
+    ('2023-10-19', '11:00:00', 'AUSB-002');
 
--- Insert trainer-course assignments (note: this table has the design issue mentioned in the TODO)
-INSERT INTO Ausbilder_hat_Kurs (Kursname, Datum, Uhrzeit, Sprache)
-VALUES
-    ('Datenbanken', '2024-01-15', '09:00:00', 'Deutsch'),
-    ('Programmierung', '2024-01-16', '14:00:00', 'Deutsch'),
-    ('Webentwicklung', '2024-01-17', '10:00:00', 'Englisch'),
-    ('Netzwerktechnik', '2024-01-18', '13:00:00', 'Deutsch'),
-    ('Betriebssysteme', '2024-01-19', '11:00:00', 'Deutsch');
-
+-- Insert data into Ausbilder_hat_Kurs table
+INSERT INTO ausbilder_hat_kurs (Kursname, Datum, Uhrzeit, Sprache)
+VALUES ('Grundlagen der Programmierung', '2023-10-15', '09:00:00', 'Deutsch'),
+       ('Datenbanken',                   '2023-10-16', '13:00:00', 'Englisch'),
+       ('Webentwicklung',                '2023-10-17', '10:30:00', 'Deutsch'),
+       ('Maschinelles Lernen',           '2023-10-18', '14:00:00', 'Englisch'),
+       ('Projektmanagement',             '2023-10-19', '11:00:00', 'Deutsch');

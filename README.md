@@ -3,10 +3,6 @@
 This is a basic Java web application project generated using the Maven `maven-archetype-webapp` archetype.  
 It uses JSP (JavaServer Pages) and is configured to run with an embedded Tomcat 9 Maven plugin.
 
-## 📁 Project Structure
-
-![img_1.png](img_1.png)
-
 ## ⚙️ Generate Project
 
 This project was created using the following Maven command:

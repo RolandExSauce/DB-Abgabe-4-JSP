@@ -1,0 +1,13 @@
+<%@ taglib prefix="sql" uri="jakarta.tags.sql" %>
+
+<!--
+Reusable DataSource fragment, config via system properties later
+▸ Im lokalen Jetty:   jdbc:postgresql://localhost:5435/ausbildung_db
+▸ Im Docker-Compose:  jdbc:postgresql://db:5432/ausbildung_db
+-->
+<sql:setDataSource var="db"
+                   driver="org.postgresql.Driver"
+                   url="jdbc:postgresql://localhost:5435/ausbildung_db"
+                   user="user"
+                   password="password"
+                   scope="page" />

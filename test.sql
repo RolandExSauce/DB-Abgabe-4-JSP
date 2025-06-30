@@ -65,3 +65,22 @@ FROM Gehaltskonto g
 JOIN Angestellter a ON g.Angestellten_Nr = a.Angestellten_Nr
 JOIN Person p ON a.Zahl = p.Zahl AND a.Geburtsdatum = p.Geburtsdatum
 WHERE g.Kontostand > (SELECT AVG(Kontostand) FROM Gehaltskonto);
+
+
+-- e.g. after teilnehmer insert:
+SELECT
+    t.kunden_nr,
+    p.vorname,
+    p.nachname,
+    p.zahl || '-' || TO_CHAR(p.geburtsdatum, 'DD.MM.YYYY') AS personenkennzeichen,
+    p.plz,
+    p.ort,
+    p.straße,
+    p.hausnummer,
+    t.kennzeichnung AS ausbilder_kennzeichnung
+FROM
+    teilnehmer t
+        JOIN
+    person p ON t.zahl = p.zahl AND t.geburtsdatum = p.geburtsdatum
+ORDER BY
+    t.kunden_nr;

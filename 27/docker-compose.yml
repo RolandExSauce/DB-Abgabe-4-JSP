@@ -22,6 +22,13 @@ services:
     image: jetty:11.0.25-jdk17
     ports: ["8085:8080"]
 
+    environment:
+
+      # when running jetty locally, 5435 will be mapped to 5432 in container
+      # When not in Docker, db hostname doesn't resolve, therefore put localhost to map
+      JDBC_URL: url="jdbc:postgresql://localhost:5435/ausbildung_db"
+      #JDBC_URL: jdbc:postgresql://db:5432/ausbildung_db
+
     volumes:
       - ./target/my-jsp-app.war:/var/lib/jetty/webapps/root.war
 
